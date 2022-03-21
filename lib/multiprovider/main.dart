@@ -40,14 +40,14 @@ class HomePage extends StatelessWidget {
       ),
       body: MultiProvider(
         providers: [
-          StreamProvider.value(
-              value: Stream<Seconds>.periodic(
+          StreamProvider(
+              create: (_) => Stream<Seconds>.periodic(
                   const Duration(seconds: 1), (_) => Seconds()),
               initialData: Seconds()),
-          StreamProvider.value(
-              value: Stream<Minutes>.periodic(
+          StreamProvider(
+              create: (_) => Stream<Minutes>.periodic(
                   const Duration(minutes: 1), (_) => Minutes()),
-              initialData: Minutes())
+              initialData: Minutes()),
         ],
         child: Row(
           children: const [
